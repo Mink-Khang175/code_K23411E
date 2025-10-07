@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex50 - HoMinhKhang</title>
+    <link rel="stylesheet" href="../ex50/mainstyle.css">
+    <script src="../ex50/ex50.js"></script>
+</head>
+<body>
+    <div class="container">
+       <header>
+            <img src="../ex50/DeLong.jpg" alt="">
+       </header>
+       <div class="main-content">
+           <h1>Travel Expense Report</h1>
+           <hr>
+           <form id="travelForm" action="">
+            <div class="name">
+                <label for="firstName">1&#41; First Name:</label>
+                <input type="text" id="firstName" name="firstName" style="width: 150px;">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" style="width: 130px">
+            </div>
+            <div class="ssn">
+                <label for="social-sercurity-number">2&#41; Social Security Number: </label>
+                <input type="text" name="social-sercurity-number" id="ssnumer">
+            </div>
+           <div class="deparment">
+                <label for="department">3&#41; Department: </label>
+                <select name="department" id="department">
+                    <option value="accounting">Accounting</option>
+                </select>
+           </div>
+           <div class="describe-purpose">
+                <div class="label-describe">
+                    <label for="describe-purpose">4&#41; Describe the purpose of your trip:</label>
+                </div>
+                
+                <div class="text-area">
+                    <textarea name="describe-purpose" id="describe-purpose" cols="70" rows="5"></textarea>
+                </div>
+           </div>
+          <div class="itemize">
+            <div class="label-itemize">
+                <label for="itemize-expenses">5&#41; Itemize your travel expenses</label>
+            </div>
+            <div class="table-itemize">
+                <table border="1" id="itemize-expenses">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                   <tr>
+                    <td>
+                        <input type="date" name="date" id="date">
+                    </td>
+                    <td>
+                        <input type="text" name="description" id="description">
+                    </td>
+                    <td>
+                        <select name="Category" id="category">
+                            <option value="meal">Meal</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="amount" id="amount">
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                        <input type="date" name="date" id="date">
+                    </td>
+                    <td>
+                        <input type="text" name="description" id="description">
+                    </td>
+                    <td>
+                        <select name="Category" id="category">
+                            <option value="meal">Meal</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="amount" id="amount">
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                        <input type="date" name="date" id="date">
+                    </td>
+                    <td>
+                        <input type="text" name="description" id="description">
+                    </td>
+                    <td>
+                        <select name="Category" id="category">
+                            <option value="meal">Meal</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="amount" id="amount">
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                        <input type="date" name="date" id="date">
+                    </td>
+                    <td>
+                        <input type="text" name="description" id="description">
+                    </td>
+                    <td>
+                        <select name="Category" id="category">
+                            <option value="meal">Meal</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="amount" id="amount">
+                    </td>
+                   </tr>
+                </table>
+            </div>
+          </div>
+            <div class="submit-question">
+                <label for="submit-question">6&#41; Have you submitted your receipts?</label>
+                <input type="radio" id="yes" name="yesno-question" value="Yes">
+                <label for="yesno-question">Yes</label>
+                <input type="radio" id="no" name="yesno-question" value="No">
+                <label for="yesno-question">No</label>
+            </div>
+            <div class="button">
+                <input type="button" name="submit" id="submit" value="Submit travel expenses">
+                <input type="reset" name="reset" id="reset" value="Reset">
+            </div>
+
+          
+           </form>
+       </div>
+        <footer>
+        Question? Contact Debbie Larson in Accounting (ext. 2150)
+       </footer>
+    </div>
+    
+</body>
+</html>

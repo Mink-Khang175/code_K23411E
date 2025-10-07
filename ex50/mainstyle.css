@@ -1,0 +1,45 @@
+body{
+      background-color: rgb(204, 255, 255);
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+  
+}
+
+header img{
+    display: block;
+  margin: auto;
+    width: 50%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.describe-purpose{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.itemize{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer{
+    margin-top: 20px;
+}
+
+.ssn input[type="text"]{
+    width: 70px;
+}
+
+#lastname{
+    width: 10px;
+}
