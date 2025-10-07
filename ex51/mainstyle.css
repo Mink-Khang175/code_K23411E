@@ -1,0 +1,71 @@
+body {
+  background-color: #007070;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+header img {
+  display: block;
+  margin: 20px auto;
+  width: 60%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group label {
+  min-width: 180px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  padding: 4px;
+  border: none;
+  border-radius: 3px;
+}
+
+select {
+  width: 220px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+input[type="button"],
+input[type="reset"] {
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  color: black;
+}
+
+input[type="button"]:hover,
+input[type="reset"]:hover {
+  background-color: #c0c0c0;
+}
