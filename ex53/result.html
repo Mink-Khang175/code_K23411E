@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex53-HoMinhKhang - Order Summary</title>
+    <style>
+        body {
+            font-family: Arial;
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .summary-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ffcc00;
+        }
+        .total-box {
+            background-color: #ffcc00;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Order Summary</h2>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const qty1 = params.get("qty1") || 0;
+    const qty2 = params.get("qty2") || 0;
+    const qty3 = params.get("qty3") || 0;
+    const itemTotal1 = params.get("itemTotal1") || "0.00";
+    const itemTotal2 = params.get("itemTotal2") || "0.00";
+    const itemTotal3 = params.get("itemTotal3") || "0.00";
+    const total = params.get("total") || "0.00";
+
+    document.write("<div class='summary-item'>");
+    document.write("<b>C112 - Mouse</b><br>");
+    document.write("Quantity: " + qty1 + " | Subtotal: $" + itemTotal1);
+    document.write("</div>");
+
+    document.write("<div class='summary-item'>");
+    document.write("<b>B124 - Keyboard US</b><br>");
+    document.write("Quantity: " + qty2 + " | Subtotal: $" + itemTotal2);
+    document.write("</div>");
+
+    document.write("<div class='summary-item'>");
+    document.write("<b>U125 - USB KingMax</b><br>");
+    document.write("Quantity: " + qty3 + " | Subtotal: $" + itemTotal3);
+    document.write("</div>");
+
+    document.write("<div class='total-box'>");
+    document.write("Total Amount: $" + total);
+    document.write("</div>");
+</script>
+
+<br>
+<a href="product.html">← Back to Order Form</a>
+
+</body>
+</html>

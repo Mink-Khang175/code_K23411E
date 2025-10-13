@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ex53 - HoMinhKhang</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 780px;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: 90%;
+            padding: 4px;
+            border: 1px solid #999;
+        }
+        .sum-btn {
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            padding: 8px 30px;
+            border: none;
+            cursor: pointer;
+        }
+        .total-row {
+            text-align: right;
+        }
+    </style>
+    <script>
+        function calculateTotal() {
+            const price1 = 19.95;
+            const price2 = 29.95;
+            const price3 = 39.95;
+
+            const qty1 = parseFloat(document.getElementById('qty1').value) || 0;
+            const qty2 = parseFloat(document.getElementById('qty2').value) || 0;
+            const qty3 = parseFloat(document.getElementById('qty3').value) || 0;
+
+            const item1Total = qty1 * price1;
+            const item2Total = qty2 * price2;
+            const item3Total = qty3 * price3;
+
+            document.getElementById('itemTotal1').value = item1Total.toFixed(2);
+            document.getElementById('itemTotal2').value = item2Total.toFixed(2);
+            document.getElementById('itemTotal3').value = item3Total.toFixed(2);
+
+            const total = item1Total + item2Total + item3Total;
+            document.getElementById('total').value = total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+
+<form action="result.html" method="get">
+    <table>
+        <tr>
+            <th>Part Number</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Item table</th>
+        </tr>
+        <tr>
+            <td>C112</td>
+            <td>Mouse</td>
+            <td>19.95$</td>
+            <td><input type="number" id="qty1" name="qty1" min="0" value="0" oninput="calculateTotal()"></td>
+            <td><input type="text" id="itemTotal1" name="itemTotal1" readonly></td>
+        </tr>
+        <tr>
+            <td>B124</td>
+            <td>Keyboard US</td>
+            <td>29.95$</td>
+            <td><input type="number" id="qty2" name="qty2" min="0" value="0" oninput="calculateTotal()"></td>
+            <td><input type="text" id="itemTotal2" name="itemTotal2" readonly></td>
+        </tr>
+        <tr>
+            <td>U125</td>
+            <td>USB KingMax</td>
+            <td>39.95$</td>
+            <td><input type="number" id="qty3" name="qty3" min="0" value="0" oninput="calculateTotal()"></td>
+            <td><input type="text" id="itemTotal3" name="itemTotal3" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="5" class="total-row">
+                Total: <input type="text" id="total" name="total" readonly style="width: 150px; margin-left: 10px;">
+                <button type="submit" class="sum-btn">Sum</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
