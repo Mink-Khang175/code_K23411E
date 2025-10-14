@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HoMinhKhang</title>
+    <script src="../js/mainjs.js"></script>
+    <script>
+        function call_fibonacci()
+        {
+            fib = find_fib(my_form.input_n.value);
+            fibonacci_result.innerText=fib
+            invoke_list_fib(my_form.input_n.value,div_fib_list);
+        }
+        function set_digital_clock()
+        {
+            t=new Date()
+            td_digital_clock.innerText=t.toLocaleTimeString()
+        }
+    </script>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <form name="my_form">
+        <fieldset>
+            <legend>Fibonacci Sequence</legend>
+            <table>
+                <tr>
+                    <td>Enter a number:</td>
+                    <td><input type="number" name="input_n" id="input_n" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="call_fibonacci()">Find Fibonacci</button>
+                        <button type="button" onclick="invoke_fib(my_form.input_n.value,fibonacci_result)">Find Fibonacci with Callback</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td id="fibonacci_result"></td>
+                </tr>
+                <tr>
+                    <td>List of Fibonacci Numbers:</td>
+                    <td>
+                        <div id="div_fib_list" style="height:150px;background-color: lavender; overflow-y: scroll;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="td_digital_clock"> My Clock</td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <div style="background-color: lightblue; height: 100px;" onclick="javascript:this.style='height:100px; background-color:red'">
+    </div>
+    <script type="text/javascript">
+        //set_digital_clock()
+        setInterval(set_digital_clock,1000)
+    </script>
+</body>
+</html>
