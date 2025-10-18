@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .main-container {
+            width: 700px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .data-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .box {
+            width: 50%;
+            border: 1px solid #888;
+            padding: 10px;
+        }
+        
+        .box h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 98%;
+            height: 150px;
+            resize: vertical; /* Cho phép thay đổi kích thước theo chiều dọc */
+            font-size: 1em;
+        }
+
+        .controls-table {
+            width: 100%;
+            margin-top: 20px;
+            border-spacing: 8px; /* Khoảng cách giữa các nút */
+        }
+
+        .controls-table td {
+            padding: 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #f0f0f0;
+            border: 2px outset #ccc;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        button:active {
+            border-style: inset; /* Hiệu ứng khi nhấn nút */
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <h1>Using String Processing functions</h1>
+
+    <div class="data-section">
+        <div class="box">
+            <h2>Input Data:</h2>
+            <textarea id="inputData"></textarea>
+        </div>
+        <div class="box">
+            <h2>Result:</h2>
+            <textarea id="resultData" readonly></textarea>
+        </div>
+    </div>
+
+    <table class="controls-table">
+        <tr>
+            <td><button onclick="enterData()">Enter Data</button></td>
+            <td><button onclick="countUppercase()">Count the number of uppercase characters</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="toUpperCaseDisplay()">Uppercase display</button></td>
+            <td><button onclick="outputOneWordPerLine()">Output one word per line</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="toLowerCaseDisplay()">lowercase display</button></td>
+            <td><button onclick="wordCount()">Word count</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="countLowercase()">Count the number of lowercase characters</button></td>
+            <td><button onclick="printVowelsConsonants()">print vowels, consonants</button></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="goToW3C()">W3C's String Processing Website</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function getInput() {
+        return document.getElementById('inputData').value;
+    }
+
+    function showResult(text) {
+        document.getElementById('resultData').value = text;
+    }
+
+    // 1. Enter Data: Mở hộp thoại để người dùng nhập dữ liệu
+    function enterData() {
+        const data = prompt("Please enter your data:", "");
+        if (data !== null) {
+            document.getElementById('inputData').value = data;
+        }
+    }
+
+    // 2. Uppercase display: Chuyển chuỗi thành chữ in hoa
+    function toUpperCaseDisplay() {
+        const text = getInput();
+        showResult(text.toUpperCase());
+    }
+
+    // 3. lowercase display: Chuyển chuỗi thành chữ thường
+    function toLowerCaseDisplay() {
+        const text = getInput();
+        showResult(text.toLowerCase());
+    }
+
+    // 4. Count the number of lowercase characters: Đếm số ký tự thường
+    function countLowercase() {
+        const text = getInput();
+        const matches = text.match(/[a-z]/g);
+        const count = matches ? matches.length : 0;
+        showResult(`Total lowercase characters: ${count}`);
+    }
+
+    // 5. Count the number of uppercase characters: Đếm số ký tự hoa
+    function countUppercase() {
+        const text = getInput();
+        const matches = text.match(/[A-Z]/g);
+        const count = matches ? matches.length : 0;
+        showResult(`Total uppercase characters: ${count}`);
+    }
+
+    // 6. Output one word per line: Xuất mỗi từ trên một dòng
+    function outputOneWordPerLine() {
+        const text = getInput().trim();
+        if (text === "") {
+            showResult("");
+            return;
+        }
+        const words = text.split(/\s+/); // Tách từ bằng một hoặc nhiều khoảng trắng
+        showResult(words.join('\n'));
+    }
+
+    // 7. Word count: Đếm số từ
+    function wordCount() {
+        const text = getInput().trim();
+        if (text === "") {
+            showResult("Word count: 0");
+            return;
+        }
+        const words = text.split(/\s+/);
+        showResult(`Word count: ${words.length}`);
+    }
+
+    // 8. print vowels, consonants: Đếm nguyên âm và phụ âm
+    function printVowelsConsonants() {
+        const text = getInput();
+        const vowels = text.match(/[aeiou]/gi) || [];
+        const consonants = text.match(/[bcdfghjklmnpqrstvwxyz]/gi) || [];
+        const result = `Vowels: ${vowels.length}\nConsonants: ${consonants.length}`;
+        showResult(result);
+    }
+
+    // 9. W3C's String Processing Website: Mở trang web của W3C
+    function goToW3C() {
+        // Mở trong tab mới để không làm mất trang hiện tại
+        window.open('https://www.w3.org/', '_blank');
+    }
+</script>
+
+</body>
+</html>
