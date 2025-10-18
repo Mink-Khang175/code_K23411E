@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex54-HoMinhKhang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .calculator-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        input[type="text"] {
+            width: 95%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        #result {
+            font-weight: bold;
+            background-color: #e9e9e9;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        button {
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid #bbb;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <table>
+        <tr>
+            <td>a:</td>
+            <td><input type="text" id="numA" value="30"></td>
+        </tr>
+        <tr>
+            <td>b:</td>
+            <td><input type="text" id="numB" value="45"></td>
+        </tr>
+        <tr>
+            <td>c:</td>
+            <td><input type="text" id="numC" value="90"></td>
+        </tr>
+        <tr>
+            <td>Result:</td>
+            <td><input type="text" id="result" readonly></td>
+        </tr>
+    </table>
+
+    <div class="buttons-container">
+        <button onclick="calculateMax()">MAX</button>
+        <button onclick="calculateMin()">MIN</button>
+        <button onclick="calculateSin()">sin(a)</button>
+        <button onclick="calculateCos()">Cos(a)</button>
+        <button onclick="calculatePower()">a^b</button>
+    </div>
+</div>
+
+<script>
+    function getNumbers() {
+        const a = parseFloat(document.getElementById('numA').value);
+        const b = parseFloat(document.getElementById('numB').value);
+        const c = parseFloat(document.getElementById('numC').value);
+        return { a, b, c };
+    }
+
+    function displayResult(value) {
+        if (isNaN(value)) {
+            document.getElementById('result').value = 'Invalid Input';
+        } else {
+            document.getElementById('result').value = value;
+        }
+    }
+
+    function calculateMax() {
+        const { a, b, c } = getNumbers();
+        const maxResult = Math.max(a, b, c);
+        displayResult(maxResult);
+    }
+
+    function calculateMin() {
+        const { a, b, c } = getNumbers();
+        const minResult = Math.min(a, b, c);
+        displayResult(minResult);
+    }
+
+
+    function calculateSin() {
+        const { a } = getNumbers();
+        const sinResult = Math.sin(a);
+        displayResult(sinResult);
+    }
+
+
+    function calculateCos() {
+        const { a } = getNumbers();
+        const cosResult = Math.cos(a);
+        displayResult(cosResult);
+    }
+
+
+    function calculatePower() {
+        const { a, b } = getNumbers();
+        const powerResult = Math.pow(a, b);
+        displayResult(powerResult);
+    }
+</script>
+
+</body>
+</html>
